@@ -2,7 +2,7 @@
 The project involves designing and implementing a multithreaded program in a Unix environment. The program aims to find the diagonal sums equal to a specified value in an input text file containing a 2D grid of digits. It utilizes multiple threads to efficiently compute diagonal sums and writes the results to an output file.
 
 ## Design Overview
-The project utilizes multithreading to optimize the computation of diagonal sums in a 2D grid. It employs POSIX threads for parallel processing, ensuring efficient execution of the diagonal sum algorithm. The design focuses on achieving a worst-case runtime complexity of O(n^3) and worst-case space complexity of O(n^2) for the diagonal sum computation.
+The project utilizes multithreading to optimize the computation of diagonal sums in a 2D grid. It employs POSIX threads for parallel processing, ensuring efficient execution of the diagonal sum algorithm. The design focuses on achieving a worst-case runtime complexity of $`O(n^3)`$ and worst-case space complexity of $`O(n^2)`$ for the diagonal sum computation.
 
 ## Functionality
 `diagonal_sums.c`:
