@@ -3,56 +3,44 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <sys/time.h>
-#include "proj4.h"
-
-/*
- * Do not modify anything in this file. 
- */
+#include "diagonal_sums.h"
 
 /*
  * Helper function for main. 
- * Check for some errors and print error messages 
- * for command line arguments passed to main.
- * If an error is found, the program terminates.
+ * Checks for some errors and print error messages for command line arguments
+ * passed to main. If an error is found, the program terminates.
  */
 void errorCheck(int argc, char ** argv){
   bool errorFound = false;
   if(argc != 5){
     printf("Usage error: ./proj4.out inputFile outputFile s t\n");
     errorFound = true;
-  }
-  else if( access(argv[1], F_OK) != 0 ){
+  } else if( access(argv[1], F_OK) != 0 ){
     printf("Error accessing %s in the present working directory\n", argv[1]);
     errorFound = true;
-  }
-  else {
+  } else {
     int t = atoi(argv[4]);
     if(t < 1 || 3 < t){
       printf("Error: t must be between 1 and 3 (inclusive)\n");
       errorFound = true;
-    }
-  }
+    } // if
+  } // if
   if(errorFound) exit(0);
-}
+} // if
 
 /*
- * This program should be compiled to ./proj4.out using the provided
- * Makefile, and it will process five command line arguments.
- *   ./proj.out input.txt output.txt s t
- *      input.txt is the name of a file in the present working directory that 
- *        contains a n-by-n grid of digits (1 through 9),
- *        where n >= 1.
- *      output.txt is the name of a file in the present working directory
- *        to save the output of diagonal sums. If the file does not exist,
- *        then this file will be created in the present working directory.
- *      s is the sum for the diagonal sums.
- *      t is the number of threads (1 <= t <= 3) to use
- *        to compute the diagonal sums. If t is 1, then only the 
- *        main thread will be used. If 2 <= t <= 3, then the main
- *        thread and (t - 1) POSIX thread(s) will be used to compute
- *        the diagonal sums.
+ * Processes five command line arguments: ./digonal_sums.out input.txt output.txt s t
+ *   input.txt    the name of a file in the present working directory that contains
+ *                a n-by-n grid of digits (1 through 9), where n >= 1.
+ *   output.txt   the name of a file in the present working directory to save the
+ *                output of diagonal sums. If the file does not exist, then this file
+ *                will be created in the present working directory.
+ *   s            the sum for the diagonal sums.
+ *   t            the number of threads (1 <= t <= 3) to use to compute the diagonal
+ *                sums. If t is 1, then only the main thread will be used. If 2 <= t <= 3,
+ *                then the main thread and (t - 1) POSIX thread(s) will be used to compute
+ *                the diagonal sums.
  * This program will only time the call to diagonalSums.
- *
  */
 int main(int argc, char ** argv){
   errorCheck(argc, argv);
@@ -82,4 +70,4 @@ int main(int argc, char ** argv){
   freeGrid(&diagonalSumsOutput);
   printf("Program is complete. Goodbye!\n");
   return 0;
-}
+} // main

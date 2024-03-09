@@ -1,11 +1,14 @@
-Compile:
-	gcc -Wall -pedantic-errors proj4.c -g -c -pthread
-	gcc -Wall -pedantic-errors main.c -g -c
-	gcc -Wall -pedantic-errors main.o proj4.o -g -o proj4.out -pthread
+CC = gcc
+CFLAGS = -Wall -pedantic-errors -g -pthread
+PROJECTNAME = diagonal_sums
 
-Run:
-	./proj4.out in1.txt out1.txt 10 1
+Compile: $(PROJECTNAME).out
+
+$(PROJECTNAME).out: $(PROJECTNAME).o main.o
+	$(CC) $(CFLAGS) $^ -o $@
+
+Run: $(PROJECTNAME).out
+	./$(PROJECTNAME).out in1.txt out1.txt 10 1
 
 Clean:
-	rm *.out
-	rm *.o
+	rm -f *.out *.o
