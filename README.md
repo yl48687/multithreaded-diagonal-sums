@@ -5,15 +5,15 @@ The project involves designing and implementing a multithreaded program in a Uni
 The project utilizes multithreading to optimize the computation of diagonal sums in a 2D grid. It employs POSIX threads for parallel processing, ensuring efficient execution of the diagonal sum algorithm. The design focuses on achieving a worst-case runtime complexity of $`O(n^3)`$ and worst-case space complexity of $`O(n^2)`$ for the diagonal sum computation.
 
 ## Functionality
-`diagonal_sums.c`:
+`diagonal_sums`:
 - Implements functions defined in `diagonal_sums.h` based on their comments and examples provided.
 - Contains the main logic for computing diagonal sums using multiple threads.
 
-`diagonal_sums.h`:
+`diagonal_sums`:
 - Contains function prototypes and necessary definitions for `diagonal_sums.c`.
 - Provides an interface for accessing the diagonal sums computation functions.
 
-`main.c`:
+`main`:
 - Contains the main function responsible for program execution and interaction with the user.
 - Handles command-line arguments parsing and calls appropriate functions for computing diagonal sums.
 
